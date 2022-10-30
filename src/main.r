@@ -18,9 +18,9 @@ colnames(df) <- c('Times',
 a_df <- data.frame(
     Times = c(0, 2, 4, 6, 8, 10),
     Mean=NA,
-    SD=NA,
+    SE=NA,
     Mean_Percent = NA,
-    SD_Percent = NA
+    SE_Percent = NA
 )
 
 number_pill_bugs <- 10
@@ -29,11 +29,11 @@ number_pill_bugs <- 10
 for (value in 1:nrow(df)) {
     print(df[value,])
     mean = mean(df[value,])
-    sd = sd(df[value,])
+    se = sd(df[value,])/sqrt(number_pill_bugs)
     a_df[value, 2] <- mean
-    a_df[value, 3] <- sd
+    a_df[value, 3] <- se
     a_df[value, 4] <- (mean/number_pill_bugs)*100
-    a_df[value, 5] <- (sd/number_pill_bugs)*100
+    a_df[value, 5] <- (se/number_pill_bugs)*100
 }
 
 print(a_df)
@@ -47,9 +47,9 @@ bg <- "#f7f7f7"
 # Renaming columns
 times = t(a_df["Times"])
 means = t(a_df["Mean"])
-sds = t(a_df["SD"])
+ses = t(a_df["SE"])
 means_percent = t(a_df["Mean_Percent"])
-sds_percent = t(a_df["SD_Percent"])
+ses_percent = t(a_df["SE_Percent"])
 
 y_axis = seq(0, 100, by=20)
 y_axis_minor = seq(0, 100, by=5)
@@ -85,10 +85,10 @@ axis(1, times, las=0, cex.axis=1.5, font=2)
 axis(2, y_axis, las=2, cex.axis=1.5, font=2)
 
 # Drawing error bars
-arrows(times, means_percent - sds_percent, times, means_percent + sds_percent, angle = 90, code = 3, length = 0.1, lwd=2, col=arrow_color)
+arrows(times, means_percent - ses_percent, times, means_percent + ses_percent, angle = 90, code = 3, length = 0.1, lwd=2, col=arrow_color)
 
 # Drawing point
-points(times, means_percent, pch = 19, cex = 3, col=point_color)
+points(times, means_percent, pch = 19, cex = 2, col=point_color)
 
 # Drawing minor ticks on y-axis
 rug(x=y_axis_minor, side=2, ticksize=-0.01)
