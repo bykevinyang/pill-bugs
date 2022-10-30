@@ -41,6 +41,9 @@ times = t(a_df["Times"])
 means = t(a_df["Mean"])
 sds = t(a_df["SD"])
 
+
+# svg("output/plot.svg")
+pdf("output/plot.pdf")
 # Plotting
 par(mar = c(5, 6, 8, 2), lheight=.8, bg=bg)
 plot(x=NA,
