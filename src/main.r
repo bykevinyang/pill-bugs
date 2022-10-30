@@ -98,3 +98,6 @@ title(main = "Pill Bugs & Filter Paper", cex.main = 2.2, font=2, adj=0, line=4)
 
 # Drawing extra long subtitle
 mtext("An Experiment Analyzing The Stimulus \nBehavior Of Pill Bugs Around Moist Filter Paper ", side=3, cex=1.5, font=1, line=.8, adj=0)
+
+# Writing note on SE
+mtext("Note: Error bars based on standard error", side=1, cex=.75, font=1, line=4, adj=-.35)
