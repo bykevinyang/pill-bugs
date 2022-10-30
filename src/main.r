@@ -60,7 +60,7 @@ pdf("output/plot.pdf")
 par(mar = c(5, 6, 8, 2), lheight=.8, bg=bg)
 plot(x=NA,
     xlab=substitute(paste(bold("Time (min)"))), 
-    ylab=substitute(paste(bold("Mean Percent of Pill Bugs"))),
+    ylab=substitute(paste(bold("Mean Percent of Pill Bugs (Out of 10)"))),
     xaxt="none",
     yaxt="none",
     cex.lab=1.5,
@@ -97,7 +97,7 @@ rug(x=y_axis_minor, side=2, ticksize=-0.01)
 title(main = "Pill Bugs & Filter Paper", cex.main = 2.2, font=2, adj=0, line=4)
 
 # Drawing extra long subtitle
-mtext("An Experiment Analyzing The Stimulus \nBehavior Of Pill Bugs Around Moist Filter Paper ", side=3, cex=1.5, font=1, line=.8, adj=0)
+mtext("An Experiment Analyzing The Stimulus Response \nOf Ten Pill Bugs Near Moist Filter Paper ", side=3, cex=1.5, font=1, line=.8, adj=0)
 
 # Writing note on SE
 mtext("Note: Error bars based on standard error", side=1, cex=.75, font=1, line=4, adj=-.35)
