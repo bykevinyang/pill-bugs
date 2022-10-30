@@ -54,7 +54,7 @@ ses_percent = t(a_df["SE_Percent"])
 y_axis = seq(0, 100, by=20)
 y_axis_minor = seq(0, 100, by=5)
 
-# svg("output/plot.svg")
+svg("output/plot.svg")
 pdf("output/plot.pdf")
 # Plotting
 par(mar = c(5, 6, 8, 2), lheight=.8, bg=bg)
